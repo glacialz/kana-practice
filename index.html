@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="./style.css" rel="stylesheet">
+        <script src="https://unpkg.com/wanakana"></script>
+    </head>
+    <body>
+        <div id="kana-grid">
+            <div id="kana-field"><span id="correct"></span><span id="unanswered"></span></div>
+            <input type="text" id="wanakana-input" />
+            <div id="options">
+                <button class="btn-class" style="background: green;" value="hiragana">hiragana</button>
+                <button class="btn-class" value="katakana">katakana</button>
+                <button class="btn-class" value="allKana">both</button>
+                <button class="btn-class" value="lookAlikes">similar looking kana</button>
+                <br>
+                <label id="numKana" for="numberOfKana">Number of Kana Per Line</label>
+                
+                <select name="numberOfKana" id="numberOfKana">
+                    <option value="1">1</option>
+                    <option value="5">5</option>
+                    <option value="10" selected>10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                </select>
+            </div>
+            <div id="spoiler">
+                <button id="tips">Helpful tips</button>
+                <p>type katana by using uppercase letters (shift or caps lock)</p>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
