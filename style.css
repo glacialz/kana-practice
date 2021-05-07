@@ -23,6 +23,19 @@ body {
     justify-items: center;
 }
 
+@media screen and (max-width: 500px) {
+    #main-grid {
+        margin: 0;
+        display: grid;
+        height: calc(100vh-50px);
+        width: calc(100vw-50px);
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr auto;
+        align-items: center;
+        justify-items: center;
+    }
+}
+
 #correct {
     color: rgb(29, 196, 49);
 }
