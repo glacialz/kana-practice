@@ -8,31 +8,96 @@
 
 body {
     font-size: 30px;
+    font-family: arial;
+    background: rgb(247, 234, 255);
 }
 
-#kana-grid {
+#main-grid {
     margin: 100px 50px 0px 50px;
     display: grid;
+    height: calc(100vh-50px);
+    width: calc(100vw-50px);
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr auto;
     align-items: center;
     justify-items: center;
 }
 
 #correct {
-    color: green;
+    color: rgb(29, 196, 49);
 }
 
 #kana-field {
-    background-color: lightgrey;
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
 }
 
 #wanakana-input {
-    background: rgb(247, 234, 255);
+    background: rgb(255, 255, 255);
     text-align: center;
     font-size: 30px;
 }
 
-#numKana {
+#spoiler {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.accordion {
+    cursor: pointer;
+    background: none;
+    border-width: 1px;
+    border-radius: 0px;
+    border-style: solid;
+    border-color: black;
+    padding: 10px 10px;
+    text-align: center;
+    outline: none;
+    transition: 0.4s;
+}
+  
+.active, .accordion:hover {
+    background-color: rgb(151, 255, 125);
+}
+  
+#options {
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.btn-class {
+    background: white;
+    border-style: solid;
+    border-radius: 0px;
+    border-width: 1px;
+    border-color: black;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#tips {
+    margin: 1rem;
     font-size: 20px;
+    color: rgb(95, 95, 95);
+}
+
+#lines {
+    border-style: solid;
+    border-color: black;
+    border-radius: 0px;
+    border-width: 1px;
+    padding: 5px 88px;
+    margin: 5px 0;
+    background: white;
+    font-size: 14px;
+}
+
+#numberOfKana {
+    
 }

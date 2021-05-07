@@ -45,21 +45,20 @@ const unansweredKana = document.querySelector('#unanswered');
 const textInput = document.querySelector('#wanakana-input');
 const buttons = document.querySelectorAll('.btn-class');
 const numKanaElement = document.querySelector('#numberOfKana');
-const accordionLink = document.querySelector('.accordion-link');
-const answer = document.querySelector('.answer');
-const upArrow = document.querySelector('.up');
-const downArrow = document.querySelector('.down');
+const accordion = document.querySelector('.accordion');
 wanakana.bind(textInput);
 let selectedKana = hiragana;
 let currentKanaSet;
 let count = 0;
-let numOfKana = 10;
+let numOfKana = 30;
 
 function reload() {
     currentKanaSet = [];
     for (let i = 0; i < numOfKana; i++ ) {
         currentKanaSet.unshift(getRandomKana(selectedKana));
     }
+    console.log(currentKanaSet)
+    count = 0;
     correctKana.innerText = '';
     unansweredKana.innerText = currentKanaSet.join('');
 }
@@ -96,7 +95,18 @@ buttons.forEach(btn => btn.addEventListener('click', (e) => {
     buttons.forEach(btn => btn.style.background = '');
     selectedKana = kanaOptions[btn.value];
     reload();
-    e.target.style.background = 'green';
+    e.target.style.background = 'rgb(151, 255, 125)';
 }))
+
+accordion.addEventListener('click', (e) => {
+    accordion.classList.toggle("active");
+    let panel = e.target.nextElementSibling;
+
+    if (panel.style.display !== "flex") {
+        panel.style.display = "flex";
+    } else {
+        panel.style.display = "none";
+    }
+})
 
 reload();
