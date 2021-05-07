@@ -104,8 +104,10 @@ accordion.addEventListener('click', (e) => {
 
     if (panel.style.display !== "flex") {
         panel.style.display = "flex";
+        accordion.innerText = "Hide"
     } else {
         panel.style.display = "none";
+        accordion.innerText = "Options"
     }
 })
 
