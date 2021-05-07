@@ -54,7 +54,7 @@ body {
 
 .accordion {
     cursor: pointer;
-    background: none;
+    background: rgb(151, 255, 125);
     border-width: 1px;
     border-radius: 0px;
     border-style: solid;
