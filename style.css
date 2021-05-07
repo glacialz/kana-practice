@@ -36,6 +36,7 @@ body {
 #kana-field {
     background-color: rgb(255, 255, 255);
     padding: 30px;
+    box-shadow: 0px 0px 3px 1px lightgrey;
 }
 
 #wanakana-input {
@@ -62,7 +63,6 @@ body {
     padding: 10px 10px;
     text-align: center;
     outline: none;
-    transition: 0.4s;
 }
   
 .active, .accordion:hover {
@@ -94,12 +94,21 @@ body {
 }
 
 #lines {
+    text-align: center;
     border-style: solid;
     border-color: black;
     border-radius: 0px;
     border-width: 1px;
-    padding: 5px 88px;
+    padding: 5px 0;
     margin: 5px 0;
     background: white;
     font-size: 14px;
+}
+
+.container {
+    width: 379px;
+}
+
+.hide {
+    padding: 10px 19.5px;
 }

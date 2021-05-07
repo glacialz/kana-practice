@@ -137,9 +137,11 @@ accordion.addEventListener('click', (e) => {
     if (panel.style.display !== "flex") {
         panel.style.display = "flex";
         accordion.innerText = "Hide"
+        accordion.classList.toggle("hide");
     } else {
         panel.style.display = "none";
         accordion.innerText = "Options"
+        accordion.classList.toggle("hide");
     }
 })
 
