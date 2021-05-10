@@ -104,11 +104,14 @@ body {
 
 #lines {
     text-align: center;
+    text-justify: center;
+    width: auto;
     border-style: solid;
     border-color: black;
     border-radius: 0px;
     border-width: 1px;
-    padding: 5px 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
     margin: 5px 0;
     background: white;
     font-size: 14px;
