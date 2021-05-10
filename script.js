@@ -96,11 +96,12 @@ function reload() {
 
 function getRomaji(kana) {
     let correctedRomaji = {"ぢ": "di","づ": "du","ヂ": "di","ヅ": "du"}
-    if (kana in correctedRomaji) {
-        return correctedRomaji[kana];
-    } else {
-        return wanakana.toRomaji(kana);
-    }
+    let kanaRomaji = (kana in correctedRomaji)? correctedRomaji[kana] : wanakana.toRomaji(kana);
+    
+    // changes katakana romaji to uppercase
+    // if (wanakana.isKatakana(kana)) { kanaRomaji = kanaRomaji.toUpperCase(); }
+
+    return kanaRomaji;
 }
 
 function displayKana(kanaArray) {
