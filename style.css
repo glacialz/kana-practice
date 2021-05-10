@@ -160,3 +160,8 @@ body {
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
+#numberOfKana {
+    border: 0;
+    border-left: 1px solid black;
+}
