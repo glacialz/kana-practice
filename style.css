@@ -29,6 +29,15 @@ body {
     }
 }
 
+.buttons {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: 28px;
+    column-gap: 4px;
+    margin: 0;
+    padding: 0;
+}
+
 .currentKana {
     border-bottom: 1px dotted black;
 }
@@ -64,7 +73,7 @@ body {
 
 .accordion {
     cursor: pointer;
-    background: rgb(151, 255, 125);
+    background: rgb(177, 255, 157);
     border-width: 1px;
     border-radius: 0px;
     border-style: solid;
@@ -75,7 +84,7 @@ body {
 }
   
 .active {
-    background-color: rgb(151, 255, 125);
+    background-color: rgb(177, 255, 157);
 }
   
 #options {
@@ -91,9 +100,7 @@ body {
     border-width: 1px;
     border-color: black;
     outline: none;
-    padding: 5px 10px;
     font-size: 14px;
-    font-weight: 400;
 }
 
 #tips {
@@ -118,7 +125,8 @@ body {
 }
 
 .container {
-    width: 379px;
+    margin-top: 5px;
+    width: 367px;
 }
 
 .hide {

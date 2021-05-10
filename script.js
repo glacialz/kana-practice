@@ -158,7 +158,7 @@ buttons.forEach(btn => btn.addEventListener('click', (e) => {
     buttons.forEach(btn => btn.style.background = '');
     selectedKana = kanaOptions[btn.value];
     reload();
-    e.target.style.background = 'rgb(151, 255, 125)';
+    e.target.style.background = 'rgb(177, 255, 157)';
 }))
 
 accordion.addEventListener('click', (e) => {
