@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
+        <title>Kana Practice</title>
+        <meta name="description" content="Review/Learn Japanese Kana By Typing The Randomly Generated Kana">
+        <meta name="author" content="Glacialz">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./style.css">
-        <script src="https://unpkg.com/wanakana"></script>
     </head>
     <body>
         <div id="main-grid">
-            <div id="kana-field"><span id="correct"></span><span id="unanswered"></span></div>
+            <div id="kana-field">
+                <div id="unanswered"></div>
+            </div>
             <input type="text" id="wanakana-input" />
         
             <div id="spoiler">
@@ -43,6 +47,7 @@
                 </div>
             </div>
         </div>
+        <script src="https://unpkg.com/wanakana"></script>
         <script src="script.js"></script>
     </body>
 </html>

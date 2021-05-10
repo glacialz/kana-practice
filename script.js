@@ -72,53 +72,84 @@ const lookAlikes = ["さ","ざ","ち","ぢ","つ",
 "レ" ]
 
 const kanaField = document.querySelector('#kana-field');
-const correctKana = document.querySelector('#correct');
 const unansweredKana = document.querySelector('#unanswered');
 const textInput = document.querySelector('#wanakana-input');
 const buttons = document.querySelectorAll('.btn-class');
 const numKanaElement = document.querySelector('#numberOfKana');
 const accordion = document.querySelector('.accordion');
-wanakana.bind(textInput);
+
 let selectedKana = hiragana;
 let currentKanaSet;
 let count = 0;
 let numOfKana = 30;
 
+wanakana.bind(textInput);
+reload();
+
 function reload() {
-    currentKanaSet = [];
-    for (let i = 0; i < numOfKana; i++ ) {
-        currentKanaSet.unshift(getRandomKana(selectedKana));
-    }
-    console.log(currentKanaSet)
+    currentKanaSet = getRandomKana(selectedKana, numOfKana);
     count = 0;
-    correctKana.innerText = '';
-    unansweredKana.innerText = currentKanaSet.join('');
+    unansweredKana.innerHTML = '';
+    displayKana(currentKanaSet);
+    unansweredKana.childNodes[0].classList.add("currentKana");
 }
 
-
-function getRandomKana(kanaArray) {
-    randomNum = Math.floor(Math.random() * kanaArray.length);
-    return kanaArray[randomNum];
+function getRomaji(kana) {
+    let correctedRomaji = {"ぢ": "di","づ": "du","ヂ": "di","ヅ": "du"}
+    if (kana in correctedRomaji) {
+        return correctedRomaji[kana];
+    } else {
+        return wanakana.toRomaji(kana);
+    }
 }
 
-textInput.addEventListener("input", (e) => {
-    inputKana = textInput.value[0];
-    if (inputKana === currentKanaSet[count]) {
+function displayKana(kanaArray) {
+    for(let i = 0; i < kanaArray.length; i++) {
+        let romaji = getRomaji(kanaArray[i]);
+        unansweredKana.innerHTML = unansweredKana.innerHTML + `<div class="tooltip">${kanaArray[i]}<span class="tooltiptext">${romaji}</span></div>`;
+    }
+}
+
+function getRandomKana(kanaArray, size) {
+    let kanaSet = []
+    for (let i = 0; i < size; i++) {
+        randomNum = Math.floor(Math.random() * kanaArray.length);
+        kanaSet.push(kanaArray[randomNum]);
+    }
+    return kanaSet;
+}
+
+function checkAnswer(inputKana) {
+    if(inputKana === currentKanaSet[count]) {
         textInput.value = "";
-        correctKana.innerText += inputKana;
-        unansweredKana.innerText = unansweredKana.innerText.replace(inputKana, '');
+        let currentKanaClassList = unansweredKana.childNodes[count].classList;
+        if (!currentKanaClassList.contains("wrong")) {
+            currentKanaClassList.add("correct");
+        }
+        currentKanaClassList.remove("currentKana");
         count++;
         if (count >= numOfKana) {
             reload();
             count = 0;
+        } else {
+            let nextKana = unansweredKana.childNodes[count];
+            nextKana.classList.add("currentKana");
         }
+    }
+    else {
+        unansweredKana.childNodes[count].classList.add("wrong");
+    }
+}
+
+textInput.addEventListener("input", (e) => {
+    let input = textInput.value[0];
+    if (wanakana.isKana(input)) {
+        checkAnswer(input);
     }
 })
 
 numKanaElement.addEventListener("change", (e) => {
-    console.log(e)
     numOfKana = e.target.value;
-    console.log(numOfKana)
     reload();
 })
 
@@ -144,5 +175,3 @@ accordion.addEventListener('click', (e) => {
         accordion.classList.toggle("hide");
     }
 })
-
-reload();

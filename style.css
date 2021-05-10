@@ -29,8 +29,16 @@ body {
     }
 }
 
-#correct {
+.currentKana {
+    border-bottom: 1px dotted black;
+}
+
+.correct {
     color: rgb(29, 196, 49);
+}
+
+.wrong {
+    color: rgb(196, 19, 49);
 }
 
 #kana-field {
@@ -41,6 +49,7 @@ body {
 
 #wanakana-input {
     background: rgb(255, 255, 255);
+    border-width: 1px;
     text-align: center;
     font-size: 30px;
 }
@@ -65,7 +74,7 @@ body {
     outline: none;
 }
   
-.active, .accordion:hover {
+.active {
     background-color: rgb(151, 255, 125);
 }
   
@@ -111,4 +120,32 @@ body {
 
 .hide {
     padding: 10px 19.5px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+  
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 5px 0;
+    border-color: lightgray;
+    border-radius: 0px;
+    border-width: 1px;
+    border-style: solid;
+
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }
