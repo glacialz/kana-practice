@@ -25,7 +25,9 @@ body {
 
 @media screen and (max-width: 500px) {
     #main-grid {
-        margin: 0;
+        margin: 10px 10px 0 10px;
+        grid-template-rows: 1fr auto auto;
+        row-gap: 10px;
     }
 }
 
